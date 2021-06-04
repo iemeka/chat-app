@@ -1,15 +1,23 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const port = 3000;
+const port = 4000;
 //socket config
 const http = require("http");
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+const eventHandlers = require("./event-handler");
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello</h2>')
-})
+const onConnection = (socket) => {
+  eventHandlers(io, socket);
+};
 
-
-server.listen(port, () => {
-  console.log(`listening on port ${port}`)
-})
+io.on("connection", onConnection);
+httpServer.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
