@@ -10,21 +10,22 @@ export default function ChatBox() {
 
   const handleTyping = (e) => {
     setNewMsg(e.target.value);
-    clearTimeout(handleKeyup);
+    clearTimeout(clearStatus);
     socket.emit("typing", true);
   };
-
-  const handleKeyup = () => {
+  const clearStatus = () => {
     socket.emit("typing", false);
   };
-
+  const handleKeyup = () => {
+    setTimeout(clearStatus, 2000);
+  };
   const handleIsTyping = useCallback((status) => {
     setTypingStatus(status);
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setReceivedMsg([...receivedMsg, newMsg]);
+    setReceivedMsg([...receivedMsg, `Me: ${newMsg}`]);
     socket.emit("new-message", newMsg);
     setNewMsg("");
   };
@@ -42,7 +43,7 @@ export default function ChatBox() {
 
     return () => {
       socket.off("new-message", handleNewMessage);
-      socket.off("typing-user", handleNewMessage);
+      socket.off("typing-user", handleIsTyping);
     };
   }, [handleIsTyping, handleNewMessage, socket]);
 
@@ -60,7 +61,7 @@ export default function ChatBox() {
           type="text"
           value={newMsg}
           onChange={handleTyping}
-          onkeyup={setTimeout(handleKeyup, 2000)}
+          onKeyUp={handleKeyup}
         />
         <button id="submit-btn">submit</button>
       </form>
