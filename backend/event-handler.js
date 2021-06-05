@@ -1,4 +1,11 @@
 module.exports = (io, socket) => {
-  console.log(socket.id);
-  socket.emit('testing', "worked!")
-}
+  socket.on('user')
+  console.log("a user connected", socket.id);
+  socket.on("new message", (newMsg) => {
+    io.emit('new message',newMsg);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("a user disconnected");
+  });
+};

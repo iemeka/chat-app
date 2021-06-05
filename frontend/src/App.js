@@ -1,10 +1,13 @@
 import "./App.css";
-import Messaging from "./Messaging";
+import ContextProvider from "./environment/ContextProvider";
+import LogIn from "./LogIn";
 
 function App() {
   return (
-    <div className="App">
-      <Messaging />
+    <div className="container">
+      <ContextProvider>
+        <LogIn />
+      </ContextProvider>
     </div>
   );
 }

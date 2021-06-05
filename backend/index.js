@@ -9,6 +9,7 @@ const io = new Server(httpServer, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 const eventHandlers = require("./event-handler");
