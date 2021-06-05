@@ -1,13 +1,13 @@
 import "./App.css";
-import ContextProvider from "./environment/ContextProvider";
-import LogIn from "./LogIn";
+import { SocketContext, socket } from "./context/socket";
+import ChatApp from "./ChatApp";
 
 function App() {
   return (
     <div className="container">
-      <ContextProvider>
-        <LogIn />
-      </ContextProvider>
+      <SocketContext.Provider value={socket}>
+        <ChatApp />
+      </SocketContext.Provider>
     </div>
   );
 }
