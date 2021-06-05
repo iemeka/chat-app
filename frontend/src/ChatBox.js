@@ -14,8 +14,8 @@ export default function ChatBox() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setReceivedMsg([...receivedMsg, newMsg]);
-    setNewMsg("");
     socket.emit("new message", newMsg);
+    setNewMsg("");
   };
 
   const handleNewMessage = useCallback(
@@ -25,13 +25,18 @@ export default function ChatBox() {
     [receivedMsg]
   );
 
+  const handleInitialConnect = useCallback(() => {
+    socket.emit("user init");
+  }, [socket]);
+
   useEffect(() => {
     socket.on("new message", handleNewMessage);
+    socket.on("connect", handleInitialConnect);
 
     return () => {
       socket.off("new message", handleNewMessage);
     };
-  }, [handleNewMessage, socket]);
+  }, [handleInitialConnect, handleNewMessage, socket]);
 
   return (
     <div className="chat-box">
