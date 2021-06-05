@@ -11,7 +11,7 @@ export default function ChatApp() {
   userNameRef.current = url[url.length - 1];
 
   const handleInitialConnect = useCallback(() => {
-    socket.emit("user init", userNameRef.current);
+    socket.emit("user-init", userNameRef.current);
   }, [socket]);
 
   useEffect(() => {
