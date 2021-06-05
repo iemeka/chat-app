@@ -25,18 +25,13 @@ export default function ChatBox() {
     [receivedMsg]
   );
 
-  const handleInitialConnect = useCallback(() => {
-    socket.emit("user init");
-  }, [socket]);
-
   useEffect(() => {
     socket.on("new message", handleNewMessage);
-    socket.on("connect", handleInitialConnect);
 
     return () => {
       socket.off("new message", handleNewMessage);
     };
-  }, [handleInitialConnect, handleNewMessage, socket]);
+  }, [handleNewMessage, socket]);
 
   return (
     <div className="chat-box">
