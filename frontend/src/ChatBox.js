@@ -14,6 +14,7 @@ export default function ChatBox() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setReceivedMsg([...receivedMsg, newMsg]);
+    setNewMsg("");
     socket.emit("new message", newMsg);
   };
 
@@ -41,7 +42,12 @@ export default function ChatBox() {
       </div>
       <form onSubmit={handleSubmit}>
         <span className="typing-indicator"></span>
-        <input className="input-box" type="text" onChange={handleTyping} />
+        <input
+          className="input-box"
+          type="text"
+          value={newMsg}
+          onChange={handleTyping}
+        />
         <button id="submit-btn">submit</button>
       </form>
     </div>

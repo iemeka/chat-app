@@ -16,3 +16,5 @@ export default function ChatApp() {
     </div>
   );
 }
+
+// new user comes online, load the last 10/few messages for him
