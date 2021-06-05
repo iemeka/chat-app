@@ -7,7 +7,6 @@ export default function OnlineUsers() {
   useEffect(() => {
     socket.on("online-users", (users) => {
       setOnlineUsers(users);
-      console.log(onlineUsers);
     });
   }, [onlineUsers, socket]);
   return (
