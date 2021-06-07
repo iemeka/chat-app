@@ -1,11 +1,12 @@
 module.exports = (io, socket) => {
+  console.log(socket.userName)
   socket.on("new-message", (data) => {
     socket.broadcast.emit("new-message", `${socket.userName}: ${data}`);
   });
 
   socket.on("user-init", (username) => {
     socket.userName = username;
-    socket.broadcast.emit("new-message", `${socket.userName} is online`);
+    socket.broadcast.emit("user-init",socket.userName);
     users = generateUsers();
     io.emit("online-users", users);
   });

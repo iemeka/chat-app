@@ -13,8 +13,20 @@ const io = new Server(httpServer, {
   },
 });
 const eventHandlers = require("./event-handler");
+let username = "";
+
+app.use(express.urlencoded({extended:true}))
+
+app.use(express.static("public"));
+
+app.post("/submit-form", (req, res) => {
+  username = req.body.username;
+  // validiat user name
+  res.redirect('http://localhost:3000');
+});
 
 const onConnection = (socket) => {
+  socket.userName = username;
   eventHandlers(io, socket);
 };
 
