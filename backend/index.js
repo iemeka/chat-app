@@ -26,8 +26,7 @@ app.post("/submit-form", (req, res) => {
 });
 
 const onConnection = (socket) => {
-  socket.userName = username;
-  eventHandlers(io, socket);
+  eventHandlers(io, socket, username);
 };
 
 io.on("connection", onConnection);

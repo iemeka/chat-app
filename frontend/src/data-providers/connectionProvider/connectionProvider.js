@@ -1,39 +1,42 @@
-import React, {
-  useEffect,
-  useState,
-  useMemo,
-  useCallback,
-} from "react";
-import { io } from "socket.io-client";
-import Messaging from "../../utils/messaging";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { socket } from "../../utils/socket";
 
 export const connectionContext = React.createContext({
   connected: false,
   messages: [],
+  setMessages: () => {},
   users: [],
   sendMessage: () => {},
+  socketUsername: null,
+  setSocketusername: () => {},
 });
 
 export function ContextProvider({ children }) {
-  const socket = io("http://localhost:4000");
-  const messaging = new Messaging(socket);
   const [connected, setConnected] = useState(false);
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
+  const [socketUsername, setSocketusername] = useState(null);
 
   const sendMessage = useCallback(
     (message) => {
+      setMessages([...messages, message]);
       socket.emit("new-message", message);
     },
-    [socket]
+    [messages]
   );
+
+  const handleConnect = useCallback((socket) => {
+    socket.emit("user-init");
+  }, []);
 
   useEffect(() => {
     socket.on("connect", () => {
+      console.log("connected", socket.id);
       setConnected(true);
-      messaging.handleConnect();
+      handleConnect(socket);
     });
     socket.on("disconnect", () => {
+      console.log("i disconnected");
       setConnected(false);
     });
     socket.on("new-message", (newMessage) => {
@@ -43,13 +46,16 @@ export function ContextProvider({ children }) {
       setUsers([...users, newUser]);
     });
     return () => {
-      socket.disconnect();
+      socket.off("new-message");
+      socket.off("connect");
+      socket.off("user-init");
+      socket.off("disconnect");
     };
-  }, []);
+  }, [handleConnect, messages, users]);
 
   const value = useMemo(() => {
-    return { connected, messages, users, sendMessage};
-  }, [connected, messages, users, sendMessage]);
+    return { connected, messages, users, sendMessage,socketUsername, setSocketusername };
+  }, [connected, messages, users, sendMessage,socketUsername, setSocketusername]);
 
   return (
     <connectionContext.Provider value={value}>

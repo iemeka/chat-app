@@ -1,5 +1,6 @@
-module.exports = (io, socket) => {
-  console.log(socket.userName)
+module.exports = (io, socket, username) => {
+  socket.userName = username;
+  console.log("connected", socket.id, socket.userName)
   socket.on("new-message", (data) => {
     socket.broadcast.emit("new-message", `${socket.userName}: ${data}`);
   });
@@ -12,7 +13,8 @@ module.exports = (io, socket) => {
   });
 
   socket.on("disconnect", () => {
-    socket.broadcast.emit("new-message", `${socket.userName} left the chat`);
+    // socket.broadcast.emit("new-message", `${socket.userName} left the chat`);
+    console.log("disconnected", socket.id)
     users = generateUsers();
     io.emit("online-users", users);
   });
