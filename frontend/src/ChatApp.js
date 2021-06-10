@@ -7,7 +7,7 @@ export default function ChatApp() {
   return (
     <div className="app-container">
       <div className="users-side">
-        {/* <OnlineUsers /> */}
+        <OnlineUsers />
       </div>
       <div className="chat-box-holder">
         <ChatBox />

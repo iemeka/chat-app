@@ -1,16 +1,17 @@
-import { useState,useContext } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { useState, useContext } from "react";
 import { connectionContext } from "./data-providers/connectionProvider/connectionProvider";
 
 function LogIn() {
-  const { setSocketusername, } = useContext(connectionContext);
-  const [username, setUsername] = useState(null);
+  const { userInit } = useContext(connectionContext);
+  const [value, setValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSocketusername(username);
+    if (value.trim().length > 0) {
+      userInit(value.trim());
+    }
   };
   const handleChange = (e) => {
-    setUsername(e.target.value);
+    setValue(e.target.value);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -21,11 +22,3 @@ function LogIn() {
 }
 
 export default LogIn;
-
-// <BrowserRouter>
-//   <Route
-//     exact
-//     path="/"
-//     render={() => (window.location = "http://localhost:4000/login.html")}
-//   />
-// </BrowserRouter>

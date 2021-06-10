@@ -1,18 +1,13 @@
-// import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
+import { connectionContext } from "./data-providers/connectionProvider/connectionProvider";
 
-// export default function OnlineUsers() {
-//   const [onlineUsers, setOnlineUsers] = useState([]);
-//   const socket = useContext(SocketContext);
-//   useEffect(() => {
-//     socket.on("online-users", (users) => {
-//       setOnlineUsers(users);
-//     });
-//   }, [onlineUsers, socket]);
-//   return (
-//     <div>
-//       {Object.keys(onlineUsers).map((uid, index) => (
-//         <div key={index}>{onlineUsers[uid]}</div>
-//       ))}
-//     </div>
-//   );
-// }
+export default function OnlineUsers() {
+  const {users} = useContext(connectionContext);
+  return (
+    <div>
+      {Object.keys(users).map((uid, index) => (
+        <div key={index}>{users[uid]}</div>
+      ))}
+    </div>
+  );
+}
