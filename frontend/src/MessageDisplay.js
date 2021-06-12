@@ -13,7 +13,7 @@ export default function MessageDisplay() {
           {message.type !== "chat-message" ? (
             <Notification msg={message} />
           ) : (
-            <Message msg={message} />
+            <Message msg={message} ind={index} lastInd={messages.length} />
           )}
         </div>
       ))}

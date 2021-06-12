@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { socket } from "../../utils/socket";
+import kickSoundUrl from "../../utils/kick.wav";
+import altImg from "../../utils/altImg.jpg"
+
 
 export const connectionContext = React.createContext({
   connected: false,
@@ -11,7 +14,9 @@ export const connectionContext = React.createContext({
   sendMessage: () => {},
   userInit: () => {},
   userName: null,
-  setUserName: () => {},
+  setUserName: () => { },
+  userData: {},
+  setUserData: () => {},
   typingStatus: false,
   setTypingStatus: () => {},
 });
@@ -21,6 +26,7 @@ export function ContextProvider({ children }) {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
   const [userName, setUserName] = useState(null);
+  const [userData, setUserData] = useState({});
   const [typingStatus, setTypingStatus] = useState(false);
 
   const sendMessage = useCallback(
@@ -35,10 +41,13 @@ export function ContextProvider({ children }) {
     [messages, userName]
   );
 
-  const userInit = useCallback((value) => {
-    setUserName(value);
+  const userInit = useCallback((name, image) => {
+    const imgUrl = (image === "") ? altImg : image;
+    setUserName(name);
+    setUserData({name,imgUrl,id:socket.id});
     socket.emit("user-init", {
-      user: value,
+      user: name,
+      imgUrl,
       message: " is online",
       type: "online",
     });
@@ -68,6 +77,8 @@ export function ContextProvider({ children }) {
     });
 
     socket.on("send-message", (message) => {
+      const audio = new Audio(kickSoundUrl);
+      audio.play();
       setMessages([...messages, message]);
     });
 
@@ -101,6 +112,7 @@ export function ContextProvider({ children }) {
       typingStatus,
       setTypingStatus,
       isTyping,
+      userData
     };
   }, [
     connected,
@@ -111,6 +123,7 @@ export function ContextProvider({ children }) {
     userInit,
     typingStatus,
     isTyping,
+    userData
   ]);
 
   return (

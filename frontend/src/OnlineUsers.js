@@ -1,13 +1,15 @@
-import { useContext} from "react";
-import { connectionContext } from "./data-providers/connectionProvider/connectionProvider";
+import CurrentUser from "./CurrentUser";
+import OtherUsers from "./OtherUsers";
 
 export default function OnlineUsers() {
-  const {users} = useContext(connectionContext);
   return (
-    <div>
-      {Object.keys(users).map((uid, index) => (
-        <div key={index}>{users[uid]}</div>
-      ))}
+    <div className="content-container">
+      <div className="current-user">
+        <CurrentUser />
+      </div>
+      <div className="other-users">
+        <OtherUsers />
+      </div>
     </div>
   );
 }
