@@ -1,27 +1,22 @@
-.hold-other-users{
-  /* border: 1px solid orange; */
-}
-
-.other-user{
+.other-user {
   display: flex;
-  /* background-color:#f4f6fb ; */
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding:5px;
+  padding: 5px;
   padding-left: 10px;
-  border-bottom: 2px solid #e5ebf2;
+  border-bottom: 1px solid #e5ebf2;
 }
 
-.other-user >*{
+.other-user > * {
   margin-right: 6px;
 }
 
-.other-user img{
+.other-user img {
   border: 2px solid #2ed573;
 }
 
-.other-user span{
+.other-user span {
   font-size: 0.8em;
   font-weight: bold;
 }

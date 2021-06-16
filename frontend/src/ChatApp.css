@@ -1,17 +1,14 @@
 .app-container {
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
 }
 
 .app-container .users-side {
-  border: 1px solid red;
   width: 300px;
   height: 630px;
 }
 
 .app-container .chat-box-holder {
-  border: 1px solid rgb(25, 0, 255);
   width: 580px;
   height: 630px;
 }

@@ -1,6 +1,8 @@
 .chat-box .display-message{
-  border: 2px solid rgb(0, 17, 255);
-  height: 550px;
+  margin-top:10px;
+  margin-left:5px;
+  margin-right:10px;
+  height: 530px;
   padding: 10px;
   background-color: #f4f6fb;
   border-radius: 8px 8px 0px 0px;
@@ -8,7 +10,6 @@
 }
 
 .display-message .msg-container{
-  border:1px solid green;
   display: flex;
   flex-direction: column;
 }

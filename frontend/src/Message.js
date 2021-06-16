@@ -8,7 +8,7 @@ export default function Message({ msg, ind, lastInd }) {
 
   return (
     <div
-      style={{ border: "2px solid yellow", alignSelf: handleAlignRef.current }}
+      style={{alignSelf: handleAlignRef.current }}
     >
       {ind + 1 === lastInd ? (
         <NewMessage user={user} message={message} imgUrl={imgUrl} />

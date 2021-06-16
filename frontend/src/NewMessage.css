@@ -1,29 +1,19 @@
 .last-enter {
-  /* opacity: 0.01;
-    transform: translate(-10px, 0) */
   opacity: 0;
   transform: scale(0.9);
 }
 
 .last-enter-active {
-  /* opacity: 1;
-  transform: translate(0, 0);
-  transition: all 500ms ease-in; */
   opacity: 1;
   transform: translateX(0);
   transition: opacity 500ms, transform 500ms;
 }
 
 .last-exit {
-  /* opacity: 1;
-  transform: translate(0, 0) */
   opacity: 1;
 }
 
 .last-exit-active {
-  /* opacity: 0.01;
-  transform: translate(20px, 0);
-  transition: all 500ms ease-in; */
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 500ms, transform 500ms;

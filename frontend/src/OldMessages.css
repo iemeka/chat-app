@@ -1,5 +1,4 @@
-.old-msg{
-  /* border:1px solid black; */
+.old-msg {
   display: inline-block;
   display: flex;
   flex-direction: row;
@@ -7,28 +6,26 @@
   width: fit-content;
   margin-bottom: 5px;
   padding: 6px;
-
 }
 
-.old-msg .user{
+.old-msg .user {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color:#f4f6fb ;
+  background-color: #f4f6fb;
 }
 
-.old-msg .user span{
+.old-msg .user span {
   text-transform: capitalize;
   font-size: 0.6em;
   font-weight: bold;
 }
 
-
-.old-msg .msg span{
+.old-msg .msg span {
   display: inline-block;
   background-color: #fff;
   padding: 6px 12px;
-  border:1px solid #e5ebf2;
+  border: 1px solid #e5ebf2;
   box-shadow: 2px 2px 3px -3px;
   border-radius: 8px;
   max-width: 300px;
