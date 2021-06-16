@@ -40,11 +40,13 @@
   background-color: #030e23;
 }
 
+
 .login-form input[type="text"] {
   border: 0px;
   padding: 5px 25px;
   background-color:#f6f8fc ;
-  border: 1px solid #e5ebf2
+  border: 1px solid #e5ebf2;
+  width:200px;
 }
 
 .login-form input[type="text"]:focus {
