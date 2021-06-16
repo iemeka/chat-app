@@ -4,7 +4,6 @@ import "./OtherUsers.css";
 
 export default function OtherUsers() {
   const { users, userData } = useContext(connectionContext);
-  console.log(users);
   const { id } = userData;
   return (
     <div className="hold-other-users">
