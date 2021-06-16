@@ -23,13 +23,11 @@
   font-weight: bold;
 }
 
-.old-msg .msg{
-}
 
 .old-msg .msg span{
   display: inline-block;
   background-color: #fff;
-  padding: 6px;
+  padding: 6px 12px;
   border:1px solid #e5ebf2;
   box-shadow: 2px 2px 3px -3px;
   border-radius: 8px;
@@ -37,4 +35,5 @@
   word-wrap: break-word;
   margin-left: 6px;
   margin-right: 6px;
+  color: #fff;
 }

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./Notification.css";
-import useScroll from "./useScroll";
+import useScroll from "./customHooks/useScroll";
 
 export default function Notification({ msg }) {
   const { user, message } = msg;
