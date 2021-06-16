@@ -1,0 +1,73 @@
+.chat-box .type-message {
+  border: 1px solid red;
+  height: 80px;
+  background-color: #f4f6fb;
+  border-radius: 0px 0px 8px 8px;
+}
+.chat-box form {
+  border: 1px solid rgb(225, 0, 255);
+  display: flex;
+  flex-direction: column;
+}
+form .hold-indicator{
+  border: 1px solid rgb(194, 194, 16);
+  height: 25px;
+  text-align: center;
+}
+
+form .hold-input-box{
+  border: 1px solid rgb(0, 255, 106);
+  height: 55px;
+  padding-top: 0px;
+  padding:0px 10px ;
+}
+
+.chat-box .typing-indicator {
+  border: 2px solid rgb(25, 0, 255);
+  height: 20px;
+  width: 500px;
+  font-size: 0.9em;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.hold-input-box .input-background{
+  border:2px solid turquoise;
+  height: 43px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-box .input-box {
+  border: 1px solid #e5ebf2;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin-right: 10px;
+  font-size: 1em;
+  padding:4px
+}
+
+.chat-box .input-box:focus{
+  outline: none;
+}
+
+.chat-box form #submit-btn {
+  border: 1px solid rgb(25, 0, 255);
+  padding:6px 15px;
+  font-size: 0.7em;
+  background-color:#1b63f1 ;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  font-weight: bold;
+}
+
+#submit-btn .sendIcon{
+  margin-left: 3px;
+}

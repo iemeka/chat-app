@@ -1,5 +1,10 @@
 .container {
-  border: 1px solid red;
-  height: 700px;
-  margin: 20px auto;
+  border: 1px solid #e5ebf2;
+  margin: 0px auto;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 900px;
+  height: 650px;
+  background-color: #fff;
+  padding: 10px;
 }

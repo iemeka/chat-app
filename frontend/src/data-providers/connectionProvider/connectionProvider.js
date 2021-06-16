@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { socket } from "../../utils/socket";
 import kickSoundUrl from "../../utils/kick.wav";
-import altImg from "../../utils/altImg.jpg"
-
+import altImg from "../../utils/altImg.jpg";
 
 export const connectionContext = React.createContext({
   connected: false,
@@ -14,7 +13,7 @@ export const connectionContext = React.createContext({
   sendMessage: () => {},
   userInit: () => {},
   userName: null,
-  setUserName: () => { },
+  setUserName: () => {},
   userData: {},
   setUserData: () => {},
   typingStatus: false,
@@ -31,20 +30,21 @@ export function ContextProvider({ children }) {
 
   const sendMessage = useCallback(
     (message) => {
-      setMessages([...messages, { user: "Me", type: "chat-message", message }]);
+      setMessages([...messages, { user: "me", type: "chat-message", message, imgUrl:userData.imgUrl  }]);
       socket.emit("send-message", {
         user: userName,
         message,
         type: "chat-message",
+        imgUrl:userData.imgUrl
       });
     },
-    [messages, userName]
+    [messages, userData.imgUrl, userName]
   );
 
   const userInit = useCallback((name, image) => {
-    const imgUrl = (image === "") ? altImg : image;
+    const imgUrl = image === "" ? altImg : image;
     setUserName(name);
-    setUserData({name,imgUrl,id:socket.id});
+    setUserData({ name, imgUrl, id: socket.id });
     socket.emit("user-init", {
       user: name,
       imgUrl,
@@ -53,13 +53,20 @@ export function ContextProvider({ children }) {
     });
   }, []);
 
-  const isTyping = useCallback((status) => {
-    const typeMessage = status ? `${userName} is Typing...` :""
-    socket.emit("typing-user", {
-      message:typeMessage ,
-      type: "typing",
-    });
-  }, [userName]);
+  const isTyping = useCallback(
+    (status) => {
+      const typeMessage = status ? `${userName} is Typing...` : "";
+      socket.emit("typing-user", {
+        message: typeMessage,
+        type: "typing",
+      });
+    },
+    [userName]
+  );
+
+  const updateMessage = useCallback((oldMessages, newMessage) => {
+    setMessages([...oldMessages, newMessage]);
+  }, []);
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -67,19 +74,19 @@ export function ContextProvider({ children }) {
     });
 
     socket.on("user-init", (message) => {
-      setMessages([...messages, message]);
+      updateMessage(messages, message);
     });
 
     socket.on("user-exit", (message) => {
       message.message = " is offline";
       message.type = "user-exit";
-      setMessages([...messages, message]);
+      updateMessage(messages, message);
     });
 
     socket.on("send-message", (message) => {
       const audio = new Audio(kickSoundUrl);
       audio.play();
-      setMessages([...messages, message]);
+      updateMessage(messages, message);
     });
 
     socket.on("online-users", (usersOnline) => {
@@ -98,7 +105,7 @@ export function ContextProvider({ children }) {
       socket.off("online-users");
       socket.off("typing-user");
     };
-  }, [messages]);
+  }, [messages, updateMessage]);
 
   const value = useMemo(() => {
     return {
@@ -112,7 +119,7 @@ export function ContextProvider({ children }) {
       typingStatus,
       setTypingStatus,
       isTyping,
-      userData
+      userData,
     };
   }, [
     connected,
@@ -123,7 +130,7 @@ export function ContextProvider({ children }) {
     userInit,
     typingStatus,
     isTyping,
-    userData
+    userData,
   ]);
 
   return (
