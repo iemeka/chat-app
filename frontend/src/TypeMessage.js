@@ -1,21 +1,46 @@
-import { useContext, useState } from "react";
-import { chatContext } from "./environment/chatContext";
+import { connectionContext } from "./data-providers/connectionProvider/connectionProvider";
+import "./ChatBox.css";
+import { useContext, useRef, useState } from "react";
 
 export default function TypeMessage() {
-  const { setSendMessage } = useContext(chatContext);
-  const [newMsg, setNewMsg] = useState("");
-
+  const { sendMessage, isTyping, typingStatus } = useContext(connectionContext);
+  const [newMessage, setNewMessage] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSendMessage(newMsg);
+    sendMessage(newMessage);
+    setNewMessage("");
   };
-  const handleTyping = (e) => {
-    setNewMsg(e.target.value);
+
+  const handleInput = (e) => {
+    setNewMessage(e.target.value);
+    clearTimeout(clearStatus);
+    isTyping(true);
   };
+
+  const clearStatus = () => {
+    isTyping(false);
+  };
+
+  const handleKeyup = () => {
+    setTimeout(clearStatus, 2000);
+  };
+
+  const typingStatusRef = useRef();
+  typingStatusRef.current = typingStatus;
+
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleTyping} />
-      <button>submit</button>
+      <span className="typing-indicator">
+        {typingStatusRef.current.message}
+      </span>
+      <input
+        className="input-box"
+        type="text"
+        value={newMessage}
+        onChange={handleInput}
+        onKeyUp={handleKeyup}
+      />
+      <button id="submit-btn">submit</button>
     </form>
   );
 }
