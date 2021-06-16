@@ -1,5 +1,47 @@
-.content-container{
+.user-container{
   border:1px solid black;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.user-container .current-user{
+  border:1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:210px
+}
+
+.user-container .users-num{
+  border:1px solid black;
+  font-size: 0.8em;
+  height: 25px;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.user-container .users-num span{
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.user-container .users-num #counter{
+  background-color:#ebedef ;
+  border-radius: 50%;
+  font-size:0.9em;
+  padding:2px;
+  color: #1b2d42;
+  font-weight: bold;
+}
+
+.user-container .other-users{
+  border:1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 395px;
+  overflow-y: scroll;
+  padding: 5px  20px;
 }

@@ -1,0 +1,26 @@
+.cur-user-sect{
+  border: 1px solid #e6ecf3;
+  background-color: #f6f8fc;
+  /* padding: 10px 30px 10px 30px; */
+  border-radius: 7px;
+  height:190px ;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cur-user-sect img{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.cur-user-name{
+  margin-top: 5px;
+  color: #16283d;
+  font-weight: bold;
+  font-size: 1em;
+}
+

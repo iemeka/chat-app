@@ -1,21 +1,22 @@
 import { connectionContext } from "./data-providers/connectionProvider/connectionProvider";
 import { useContext } from "react";
+import "./OtherUsers.css";
 
 export default function OtherUsers() {
   const { users, userData } = useContext(connectionContext);
-  console.log(users)
+  console.log(users);
   const { id } = userData;
   return (
-    <div>
+    <div className="hold-other-users">
       {Object.keys(users).map((uid, index) =>
         uid !== id ? (
-          <div key={index}>
+          <div key={index} className="other-user">
             <img
               style={{ width: "40px", height: "40px", borderRadius: "50%" }}
               src={users[uid].imgUrl}
               alt=""
             />
-            <div>{users[uid].name}</div>
+            <span>{users[uid].name}</span>
           </div>
         ) : null
       )}

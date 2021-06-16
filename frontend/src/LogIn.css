@@ -1,0 +1,66 @@
+.container{
+  border: 0px;
+  margin: 0px auto;
+  border-radius: 0px;
+  width: fit-content;
+  height: auto;
+  background-color: #fff;
+  padding: 0px;
+}
+.login-form {
+  border: 1px solid #e5ebf2;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 365px;
+  width: fit-content;
+  background-color: #fff;
+}
+
+.login-form img {
+  width: 250px;
+  height: 250px;
+}
+
+.login-form input[type="file"] {
+  display: none;
+}
+
+.login-form .file-upload {
+  border-radius: 5px;
+  color: #fff;
+  background-color: #1c2439;
+  cursor: pointer;
+  padding: 5px 25px;
+}
+
+.login-form .file-upload:hover {
+  background-color: #030e23;
+}
+
+.login-form input[type="text"] {
+  border: 0px;
+  padding: 5px 25px;
+  background-color:#f6f8fc ;
+  border: 1px solid #e5ebf2
+}
+
+.login-form input[type="text"]:focus {
+  outline: none;
+}
+
+.login-form button {
+  border: 0px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #1b63f1;
+  cursor: pointer;
+  padding: 5px 25px;
+  margin-bottom: 5px;
+}
+
+.login-form button:hover{
+  background-color:#062563 ;
+}
