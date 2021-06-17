@@ -8,6 +8,9 @@ function App() {
       <ContextProvider>
         <Security />
       </ContextProvider>
+      <div className="built-by">
+        <a href="https://iemeka.github.io/">created by Emeka</a>
+      </div>
     </div>
   );
 }
