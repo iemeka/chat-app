@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/chat-app/static/css/main.825d3977.chunk.css",
-    "main.js": "/chat-app/static/js/main.c3588a0b.chunk.js",
-    "main.js.map": "/chat-app/static/js/main.c3588a0b.chunk.js.map",
+    "main.css": "/chat-app/static/css/main.12034dc3.chunk.css",
+    "main.js": "/chat-app/static/js/main.65920efd.chunk.js",
+    "main.js.map": "/chat-app/static/js/main.65920efd.chunk.js.map",
     "runtime-main.js": "/chat-app/static/js/runtime-main.74e84480.js",
     "runtime-main.js.map": "/chat-app/static/js/runtime-main.74e84480.js.map",
-    "static/js/2.fae955c0.chunk.js": "/chat-app/static/js/2.fae955c0.chunk.js",
-    "static/js/2.fae955c0.chunk.js.map": "/chat-app/static/js/2.fae955c0.chunk.js.map",
+    "static/js/2.2c9f8c74.chunk.js": "/chat-app/static/js/2.2c9f8c74.chunk.js",
+    "static/js/2.2c9f8c74.chunk.js.map": "/chat-app/static/js/2.2c9f8c74.chunk.js.map",
     "index.html": "/chat-app/index.html",
-    "static/css/main.825d3977.chunk.css.map": "/chat-app/static/css/main.825d3977.chunk.css.map",
-    "static/js/2.fae955c0.chunk.js.LICENSE.txt": "/chat-app/static/js/2.fae955c0.chunk.js.LICENSE.txt",
+    "static/css/main.12034dc3.chunk.css.map": "/chat-app/static/css/main.12034dc3.chunk.css.map",
+    "static/js/2.2c9f8c74.chunk.js.LICENSE.txt": "/chat-app/static/js/2.2c9f8c74.chunk.js.LICENSE.txt",
     "static/media/altImg.8d7f1054.jpg": "/chat-app/static/media/altImg.8d7f1054.jpg",
-    "static/media/kick.1d842c55.wav": "/chat-app/static/media/kick.1d842c55.wav"
+    "static/media/sound.9287f5ce.mp3": "/chat-app/static/media/sound.9287f5ce.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.74e84480.js",
-    "static/js/2.fae955c0.chunk.js",
-    "static/css/main.825d3977.chunk.css",
-    "static/js/main.c3588a0b.chunk.js"
+    "static/js/2.2c9f8c74.chunk.js",
+    "static/css/main.12034dc3.chunk.css",
+    "static/js/main.65920efd.chunk.js"
   ]
 }
