@@ -1,7 +1,7 @@
 # Chat Web Application.
 A real time chatting application.
 
-visit https://iemeka.github.io/chat-app/
+visit: https://iemeka.github.io/chat-app/
 
 ## Development
 - Install dependencies npm install
