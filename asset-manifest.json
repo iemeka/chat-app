@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/chat-app/static/css/main.787c1c92.chunk.css",
-    "main.js": "/chat-app/static/js/main.bd9876c1.chunk.js",
-    "main.js.map": "/chat-app/static/js/main.bd9876c1.chunk.js.map",
+    "main.css": "/chat-app/static/css/main.825d3977.chunk.css",
+    "main.js": "/chat-app/static/js/main.c3588a0b.chunk.js",
+    "main.js.map": "/chat-app/static/js/main.c3588a0b.chunk.js.map",
     "runtime-main.js": "/chat-app/static/js/runtime-main.74e84480.js",
     "runtime-main.js.map": "/chat-app/static/js/runtime-main.74e84480.js.map",
     "static/js/2.fae955c0.chunk.js": "/chat-app/static/js/2.fae955c0.chunk.js",
     "static/js/2.fae955c0.chunk.js.map": "/chat-app/static/js/2.fae955c0.chunk.js.map",
     "index.html": "/chat-app/index.html",
-    "static/css/main.787c1c92.chunk.css.map": "/chat-app/static/css/main.787c1c92.chunk.css.map",
+    "static/css/main.825d3977.chunk.css.map": "/chat-app/static/css/main.825d3977.chunk.css.map",
     "static/js/2.fae955c0.chunk.js.LICENSE.txt": "/chat-app/static/js/2.fae955c0.chunk.js.LICENSE.txt",
     "static/media/altImg.8d7f1054.jpg": "/chat-app/static/media/altImg.8d7f1054.jpg",
     "static/media/kick.1d842c55.wav": "/chat-app/static/media/kick.1d842c55.wav"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.74e84480.js",
     "static/js/2.fae955c0.chunk.js",
-    "static/css/main.787c1c92.chunk.css",
-    "static/js/main.bd9876c1.chunk.js"
+    "static/css/main.825d3977.chunk.css",
+    "static/js/main.c3588a0b.chunk.js"
   ]
 }
