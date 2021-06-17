@@ -6,13 +6,13 @@ export default function CurrentUser() {
   const { userData } = useContext(connectionContext);
   return (
     <div className="cur-user-sect">
-      <div className="img-holder">
-        <img
-          src={userData.imgUrl}
-          alt=""
-        />
+      <div
+        className="image"
+        style={{ backgroundImage: `url("${userData.imgUrl}")` }}
+      />
+      <div className="cur-user-name">
+        <span>{userData.name}</span>
       </div>
-      <div className="cur-user-name"><span>{userData.name}</span></div>
     </div>
   );
 }

@@ -3,22 +3,22 @@
   background-color: #f4f6fb;
   border-radius: 0px 0px 8px 8px;
   margin-bottom: 10px;
-  margin-left:5px;
-  margin-right:10px;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 .chat-box form {
   display: flex;
   flex-direction: column;
 }
-form .hold-indicator{
+form .hold-indicator {
   height: 25px;
   text-align: center;
 }
 
-form .hold-input-box{
+form .hold-input-box {
   height: 55px;
   padding-top: 0px;
-  padding:0px 10px ;
+  padding: 0px 10px;
 }
 
 .chat-box .typing-indicator {
@@ -29,7 +29,7 @@ form .hold-input-box{
   letter-spacing: 1px;
 }
 
-.hold-input-box .input-background{
+.hold-input-box .input-background {
   height: 43px;
   background-color: #fff;
   border-radius: 8px;
@@ -40,24 +40,25 @@ form .hold-input-box{
 }
 
 .chat-box .input-box {
-  border: 1px solid #e5ebf2;
+  border: none;
   display: block;
   width: 100%;
   max-width: 400px;
   margin-right: 10px;
   font-size: 1em;
-  padding:4px
+  padding: 4px 15px;
 }
 
-.chat-box .input-box:focus{
+.chat-box .input-box:focus {
+  border: 1px solid #e5ebf2;
   outline: none;
 }
 
 .chat-box form #submit-btn {
   border: none;
-  padding:6px 15px;
+  padding: 6px 15px;
   font-size: 0.7em;
-  background-color:#1b63f1 ;
+  background-color: #1b63f1;
   color: #fff;
   border-radius: 4px;
   text-align: center;
@@ -65,6 +66,6 @@ form .hold-input-box{
   font-weight: bold;
 }
 
-#submit-btn .sendIcon{
+#submit-btn .sendIcon {
   margin-left: 3px;
 }

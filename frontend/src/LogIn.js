@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { connectionContext } from "./data-providers/connectionProvider/connectionProvider";
 import altImg from "./utils/altImg.jpg";
+import "./App.css";
 import "./LogIn.css";
 
 function LogIn() {
@@ -31,11 +32,17 @@ function LogIn() {
   };
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-        <img src={imgUrl} alt="" />
-      <label className="file-upload" for="img">select profile picture</label>
-      <input id="img"type="file" onChange={handleUpload} />
+      <div className="image-uploader">
+        <div className="image" style={{backgroundImage:`url("${imgUrl}")`}}></div>
+        <div className="choose-file">
+          <input id="img" type="file" onChange={handleUpload} />
+          <label className="file-upload" for="img">
+            upload image
+          </label>
+        </div>
+      </div>
 
-      <input  placeholder="enter username"  type="text" onChange={handleChange} />
+      <input placeholder="Choose a username" type="text" onChange={handleChange} />
       <button>submit</button>
     </form>
   );

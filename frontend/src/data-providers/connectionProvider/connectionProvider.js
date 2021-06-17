@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { socket } from "../../utils/socket";
-import kickSoundUrl from "../../utils/kick.wav";
+import kickSoundUrl from "../../utils/sound.mp3";
 import altImg from "../../utils/altImg.jpg";
 
 export const connectionContext = React.createContext({

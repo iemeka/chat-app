@@ -1,52 +1,72 @@
-.container{
-  border: 0px;
-  margin: 0px auto;
-  border-radius: 0px;
-  width: fit-content;
-  height: auto;
-  background-color: #fff;
-  padding: 0px;
-}
 .login-form {
-  border: 1px solid #e5ebf2;
   display: flex;
   flex-direction: column;
-  margin: 50px auto;
   align-items: center;
   justify-content: space-between;
-  min-height: 365px;
   width: fit-content;
-  background-color: #fff;
+  background-color: #f7f9fc;
 }
 
-.login-form img {
-  width: 250px;
-  height: 250px;
+.login-form .image-uploader{
+  width: 160px;
+  text-align: center;
+  position: relative;
 }
 
-.login-form input[type="file"] {
-  display: none;
+.login-form .image-uploader:hover .choose-file{
+  visibility: visible;
 }
 
-.login-form .file-upload {
-  border-radius: 5px;
-  color: #fff;
-  background-color: #1c2439;
+.image-uploader .choose-file{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.image-uploader input[type="file"] {
+  visibility: hidden;
+  position: absolute;
+}
+
+.choose-file{
+  font-size: 12px;
+}
+
+.choose-file label{
+  margin: 0;
   cursor: pointer;
-  padding: 5px 25px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.login-form .file-upload:hover {
-  background-color: #030e23;
+
+.login-form .image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 
 .login-form input[type="text"] {
   border: 0px;
   padding: 5px 25px;
-  background-color:#f6f8fc ;
+  background-color:#fff ;
   border: 1px solid #e5ebf2;
   width:200px;
+  font-size: 15px;
+  margin-top: 16px;
+  text-align: center;
 }
 
 .login-form input[type="text"]:focus {
@@ -60,7 +80,8 @@
   background-color: #1b63f1;
   cursor: pointer;
   padding: 5px 25px;
-  margin-bottom: 5px;
+  margin-top: 16px;
+  width:200px;
 }
 
 .login-form button:hover{

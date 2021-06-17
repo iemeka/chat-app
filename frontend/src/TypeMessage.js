@@ -43,7 +43,7 @@ export default function TypeMessage() {
         <div className="hold-input-box">
           <div className="input-background">
             <input
-              placeholder="enter your message here"
+              placeholder="Enter your message here"
               className="input-box"
               type="text"
               value={newMessage}
