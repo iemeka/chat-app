@@ -32,7 +32,7 @@ export function ContextProvider({ children }) {
     (message) => {
       setMessages([
         ...messages,
-        { user: "me", type: "chat-message", message, imgUrl: altImg },
+        { user: "me", type: "chat-message", message, imgUrl: userData.imgUrl },
       ]);
       socket.emit("send-message", {
         user: userName,
@@ -41,7 +41,7 @@ export function ContextProvider({ children }) {
         imgUrl: altImg,
       });
     },
-    [messages, userName]
+    [messages, userData.imgUrl, userName]
   );
 
   const userInit = useCallback((name, image) => {
