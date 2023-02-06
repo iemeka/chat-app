@@ -30,21 +30,24 @@ export function ContextProvider({ children }) {
 
   const sendMessage = useCallback(
     (message) => {
-      setMessages([...messages, { user: "me", type: "chat-message", message, imgUrl:userData.imgUrl  }]);
+      setMessages([
+        ...messages,
+        { user: "me", type: "chat-message", message, imgUrl: userData.imgUrl },
+      ]);
       socket.emit("send-message", {
         user: userName,
         message,
         type: "chat-message",
-        imgUrl:userData.imgUrl
+        imgUrl: altImg,
       });
     },
     [messages, userData.imgUrl, userName]
   );
 
   const userInit = useCallback((name, image) => {
-    const imgUrl = image === "" ? altImg : image;
+    const imgUrl = altImg !== "" ? altImg : image;
     setUserName(name);
-    setUserData({ name, imgUrl, id: socket.id });
+    setUserData({ name, imgUrl: image, id: socket.id });
     socket.emit("user-init", {
       user: name,
       imgUrl,
